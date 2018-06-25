@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "289806039170",
+    "firebase_url": "https://login-module-5a2e8.firebaseio.com",
+    "project_id": "login-module-5a2e8",
+    "storage_bucket": "login-module-5a2e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289806039170:android:ff471ee5602119bc",
+        "android_client_info": {
+          "package_name": "com.example.sam.womenintechconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289806039170-77cl0l5ahosb1o6b1kjdjr50277g4k70.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "289806039170-77cl0l5ahosb1o6b1kjdjr50277g4k70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNGxzEWDoKbyD_P3xzXH0RRR4QNDJvi8Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
