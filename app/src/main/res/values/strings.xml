@@ -10,7 +10,25 @@
     <string name="password1">Password</string>
     <string name="sign_up">sign up</string>
     <string name="welcome_to_WIT_Connect">Welcome to WITConnect</string>
-    <string name="textview">TextView</string>
     <string name="enter_your_details_here">Enter your details here:-</string>
-    />
+    <string name="about_us">About Us</string>
+    <string name="AboutUs" />
+    <string name="profile">profile</string>
+    <string name="chat">Chat</string>
+    <string name="files">Files</string>
+    <string name="logout">Logout</string>
+    <string name="help">Help</string>
+    <string name="user_gmail_com">user@gmail.com</string>
+    <string name="username">UserName</string>
+    <string name="home">Home Page</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+
+    <string name="welcome_nv">Welcome:</string>
+    <string name="chatroom">chatRoom</string>
+    <string name="User_profile">profileUser</string>
+    <string name="download_files">Download files</string>
+    <string name="settings">Settings</string>
+    <string name="Help_page">help</string>
 </resources>

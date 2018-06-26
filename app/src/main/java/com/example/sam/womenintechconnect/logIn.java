@@ -49,7 +49,7 @@ public class logIn extends AppCompatActivity {
 
         if(user != null){
             finish();
-            startActivity(new Intent(logIn.this,homepage.class));
+            startActivity(new Intent(logIn.this,home.class));
         }
 
 
@@ -73,12 +73,14 @@ public class logIn extends AppCompatActivity {
                                progressDialog.dismiss();
 
                                Toast.makeText(logIn.this, "Login successful", Toast.LENGTH_SHORT).show();
-                               startActivity((new Intent(logIn.this, homepage.class)));
+                               startActivity((new Intent(logIn.this, home.class)));
 
-                           } else
+                           }
+                           else{
                                progressDialog.dismiss();
                                Toast.makeText(logIn.this, "Login failed", Toast.LENGTH_SHORT).show();
 
+                       }
                        }
 
                    });
@@ -113,12 +115,6 @@ public class logIn extends AppCompatActivity {
         }
         return result;
     }
-
-
-
-
-
-
 
 
 

@@ -38,7 +38,6 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
-        android:onClick="onClick"
         android:text="@string/login"
         android:visibility="visible"
         tools:ignore="OnClick" />
