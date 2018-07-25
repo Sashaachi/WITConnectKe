@@ -55,6 +55,11 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return mToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_chat:
@@ -81,7 +86,6 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
         return true;
     }
-
     private void logout(){
         firebaseAuth.signOut();
         finish();

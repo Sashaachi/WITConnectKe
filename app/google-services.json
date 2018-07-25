@@ -15,8 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "289806039170-77cl0l5ahosb1o6b1kjdjr50277g4k70.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "289806039170-sjvmtvvbsmchknsdf6vch2s7b6gprc8b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sam.womenintechconnect",
+            "certificate_hash": "401c2ebf877ebc6428da2151dbbafa7c3c100575"
+          }
         },
         {
           "client_id": "289806039170-77cl0l5ahosb1o6b1kjdjr50277g4k70.apps.googleusercontent.com",
@@ -33,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289806039170-77cl0l5ahosb1o6b1kjdjr50277g4k70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
