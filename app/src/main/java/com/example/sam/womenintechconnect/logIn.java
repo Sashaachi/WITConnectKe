@@ -20,11 +20,9 @@ public class logIn extends AppCompatActivity {
 
     private EditText EmailAddress;
     private EditText Password;
-    private Button LoginBtn;
-    private TextView Info;
-    private Button Register;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private TextView forgotpswd;
 
 
     @Override
@@ -34,9 +32,11 @@ public class logIn extends AppCompatActivity {
 
         EmailAddress = (EditText) findViewById(R.id.et_email);
         Password = (EditText) findViewById(R.id.et_password);
-        LoginBtn = (Button) findViewById(R.id.btn_login);
-        Info = (TextView) findViewById(R.id.tv_info);
-        Register = (Button) findViewById(R.id.btn_register);
+        forgotpswd=findViewById(R.id.tv_forgot);
+        Button loginBtn = (Button) findViewById(R.id.btn_login);
+        TextView info = (TextView) findViewById(R.id.tv_info);
+        Button register = (Button) findViewById(R.id.btn_register);
+
 
         //authenticate the user log in
         firebaseAuth = FirebaseAuth.getInstance();
@@ -54,7 +54,7 @@ public class logIn extends AppCompatActivity {
 
 
         //set listener on button for log in
-        LoginBtn.setOnClickListener(new View.OnClickListener() {
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                if ( validate()){
@@ -78,7 +78,7 @@ public class logIn extends AppCompatActivity {
                            }
                            else{
                                progressDialog.dismiss();
-                               Toast.makeText(logIn.this, "Login failed", Toast.LENGTH_SHORT).show();
+                               Toast.makeText(logIn.this, "Login failed,forgot password?", Toast.LENGTH_SHORT).show();
 
                        }
                        }
@@ -91,10 +91,16 @@ public class logIn extends AppCompatActivity {
         });
 
         //set listener on button for registration of a new user
-        Register.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(logIn.this, Registration.class));
+            }
+        });
+        forgotpswd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(logIn.this,forgotPassword.class));
             }
         });
 

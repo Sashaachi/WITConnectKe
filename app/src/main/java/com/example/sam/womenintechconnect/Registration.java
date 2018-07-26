@@ -20,9 +20,8 @@ public class Registration extends AppCompatActivity {
     private EditText UserName;
     private EditText Email;
     private EditText Password;
-    private Button SignUp;
-    private TextView Welcome;
     private FirebaseAuth firebaseAuth;
+    private EditText confirmPswd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +31,17 @@ public class Registration extends AppCompatActivity {
         UserName= findViewById(R.id.et_username);
         Email= findViewById(R.id.et_email);
         Password= findViewById(R.id.et_password);
-        SignUp= findViewById(R.id.btn_sign_up);
-        Welcome= findViewById(R.id.tv_welcome);
+        confirmPswd=findViewById(R.id.et_password2);
+        Button signUp = findViewById(R.id.btn_sign_up);
+
+
 
         //create an instance of firebase authentication
         firebaseAuth =FirebaseAuth.getInstance();
 
-        //listener on welcome
-        Welcome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Registration.this,logIn.class));
-            }
-        });
+
         //listener on sign up button validating and uploading data to the database
-        SignUp.setOnClickListener(new View.OnClickListener() {
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //validate user details
@@ -82,8 +77,9 @@ public class Registration extends AppCompatActivity {
         String Uname=UserName.getText().toString();
         String Uemail=Email.getText().toString();
         String Upassword=Password.getText().toString();
+        String Uconfirm=confirmPswd.getText().toString();
 
-        if(Uname.isEmpty() || Uemail.isEmpty() || Upassword.isEmpty()){
+        if(Uname.isEmpty() || Uemail.isEmpty() || Upassword.isEmpty() || Uconfirm.isEmpty()){
             Toast.makeText(this,"Please enter all your details", Toast.LENGTH_SHORT).show();
         }
         else{

@@ -44,27 +44,25 @@
         android:ems="10"
         android:hint="@string/password1"
         android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/et_password2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="260dp"
+        android:ems="10"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btn_sign_up"
         android:layout_width="113dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="135dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginStart="100dp"
         android:background="@drawable/button_shape"
         android:text="@string/sign_up" />
-
-    <TextView
-        android:id="@+id/tv_welcome"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="48dp"
-        android:layout_marginEnd="41dp"
-        android:text="@string/welcome_to_WIT_Connect"
-        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_info2"
