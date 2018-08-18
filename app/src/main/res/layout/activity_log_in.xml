@@ -34,9 +34,8 @@
         android:id="@+id/btn_login"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_below="@id/et_password"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginStart="120dp"
         android:background="@drawable/button_shape"
         android:text="@string/login"
         android:visibility="visible"
@@ -44,9 +43,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password"
-        android:layout_marginTop="300dp"
-        android:layout_marginStart="130dp"
+        android:text="@string/frgt"
+        android:textSize="18sp"
+        android:layout_marginTop="320dp"
+        android:layout_marginStart="100dp"
         android:id="@+id/tv_forgot"
         />
 
@@ -54,9 +54,8 @@
         android:id="@+id/tv_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="120dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginTop="360dp"
         android:text="@string/new_user_register_here"
         android:textSize="18sp"
         android:visibility="visible" />
@@ -64,10 +63,9 @@
     <Button
         android:id="@+id/btn_register"
         android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:layout_alignEnd="@+id/btn_login"
-        android:layout_below="@+id/tv_info"
-        android:layout_marginTop="-108dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="390dp"
+        android:layout_marginStart="120dp"
         android:background="@drawable/button_shape"
         android:text="@string/register" />
 

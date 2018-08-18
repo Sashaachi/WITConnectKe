@@ -15,16 +15,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_homepage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="200dp"
-            android:text="@string/home"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"

@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorAccent">
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@android:color/white">
 
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/ic_launcher_round"
+    android:layout_marginStart="150dp"
+    android:layout_marginTop="40dp"
+    android:contentDescription="@string/user_image" />
     <TextView
+        android:id="@+id/tv_profilename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/User_profile"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="180dp"
+        android:text="@string/profilename"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/tv_profile_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="230dp"
+        android:text="@string/contact"
+        android:textSize="22sp"/>
+    <TextView
+        android:id="@+id/tv_profession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="280dp"
+        android:text="@string/profession"
+        android:textSize="22sp"/>
+    <TextView
+        android:id="@+id/tv_profilerole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="330dp"
+        android:text="@string/role"
+        android:textSize="22sp"/>
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginStart="120dp"
+        android:background="@drawable/button_shape"
+        android:text="@string/updatebtn" />
+
+
+
+
+
+
 
 </RelativeLayout>
