@@ -19,13 +19,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginStart="100dp"
-        android:text="Select file"/>
+        android:text="@string/select_file"/>
+    <TextView
+        android:id="@+id/tv_selectedfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/selected_file"
+        android:textSize="18sp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="170dp"/>
     <Button
         android:id="@+id/btn_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginStart="100dp"
-        android:text="Upload"/>
+        android:layout_marginTop="220dp"
+        android:layout_marginStart="110dp"
+        android:text="@string/upload"/>
+    <Button
+        android:id="@+id/btn_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="110dp"
+        android:text="@string/download"/>
+
 
 </RelativeLayout>

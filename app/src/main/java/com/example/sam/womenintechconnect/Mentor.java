@@ -90,7 +90,6 @@ public class Mentor extends AppCompatActivity
 
             case R.id.nav_settings:
                 Toast.makeText(this,"Go to Settings",Toast.LENGTH_SHORT).show();
-                Toast.makeText(this,"Go to Settings",Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(Mentor.this,SettingsActivity.class);
                 startActivity(intent);
                 break;

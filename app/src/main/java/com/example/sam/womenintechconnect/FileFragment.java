@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,6 +40,7 @@ import static android.support.v4.provider.FontsContractCompat.FontRequestCallbac
 public class FileFragment extends Fragment {
     Button upload;
     Button select;
+    TextView selectFile;
     FirebaseDatabase database;
     FirebaseStorage storage;
     Activity context;
@@ -55,6 +57,7 @@ public class FileFragment extends Fragment {
 
         upload=(Button) view.findViewById(R.id.btn_upload);
         select=(Button) view.findViewById(R.id.btn_select);
+        selectFile=(TextView) view.findViewById(R.id.tv_selectedfile);
         storage=FirebaseStorage.getInstance();
         database=FirebaseDatabase.getInstance();
         context=getActivity();
@@ -72,10 +75,8 @@ public class FileFragment extends Fragment {
                 document.addCategory(Intent.CATEGORY_OPENABLE);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    document.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
-                    if (mimeTypes.length > 0) {
-                        document.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
-                    }
+                    document.setType(mimeTypes[0]);
+                    document.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
                 } else {
                     String mimeTypesStr = "";
                     for (String mimeType : mimeTypes) {
@@ -86,10 +87,23 @@ public class FileFragment extends Fragment {
                 startActivityForResult(Intent.createChooser(document,"ChooseFile"), IMAGE_PICK_REQUEST2);
             }
         });
+        //select file to be uploaded
+
+        selectFile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Selected file",Toast.LENGTH_SHORT).show();
+
+
+
+
+            }
+        });
 //upload file
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getContext(),"Upload file",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -103,6 +117,7 @@ public class FileFragment extends Fragment {
         if(requestCode==IMAGE_PICK_REQUEST2 && resultCode==RESULT_OK && data!=null && data.getData()!=null){
             filepath=data.getData();
             Toast.makeText(getContext(),""+filepath,Toast.LENGTH_LONG).show();
+
         }
         else{
             Toast.makeText(getContext(),"no file",Toast.LENGTH_LONG).show();
