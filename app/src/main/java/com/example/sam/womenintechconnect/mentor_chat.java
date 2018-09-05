@@ -43,17 +43,26 @@ ArrayList<RegistrationData> arrayList;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (final DataSnapshot snapshot1: dataSnapshot.getChildren()){
+                    //Toast.makeText(getContext(),""+snapshot1.getKey(),Toast.LENGTH_SHORT).show();
                     FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             arrayList.clear();
                             for (DataSnapshot snapshot:dataSnapshot.getChildren()){
                                 RegistrationData data=snapshot.getValue(RegistrationData.class);
+
                                 if (data.getId().equals(snapshot1.getKey())){
+                                    //Toast.makeText(getContext(),""+data.getId(),Toast.LENGTH_SHORT).show();
+
                                     arrayList.add(data);
 
                                 }
+                               // Toast.makeText(getContext(),""+arrayList.size(),Toast.LENGTH_SHORT).show();
+
                             }
+                            RecylerViewAdapter adapter=new RecylerViewAdapter(getContext(),arrayList);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                            recyclerView.setAdapter(adapter);
                         }
 
                         @Override
@@ -62,9 +71,7 @@ ArrayList<RegistrationData> arrayList;
                         }
                     });
                 }
-                RecylerViewAdapter adapter=new RecylerViewAdapter(getContext(),arrayList);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                recyclerView.setAdapter(adapter);
+
             }
 
             @Override

@@ -40,6 +40,7 @@ public class ProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot:dataSnapshot.getChildren()){
                     RegistrationData data=snapshot.getValue(RegistrationData.class);
+                    assert data != null;
                     if (data.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
                         name.setText(data.getName());
                         contact.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
@@ -57,6 +58,7 @@ public class ProfileFragment extends Fragment {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getContext(),"Please wait",Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(getContext(),UpdateProfile.class);
                 startActivity(intent);
             }

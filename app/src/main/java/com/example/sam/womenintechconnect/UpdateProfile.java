@@ -69,7 +69,7 @@ public class UpdateProfile extends AppCompatActivity {
                 String email=newContact.getText().toString();
                 String profession=newProfession.getText().toString();
 
-                RegistrationData data=new RegistrationData(name,email,profession);
+                new RegistrationData(name, email, profession);
 
                 FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
                     @Override

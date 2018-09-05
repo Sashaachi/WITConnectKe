@@ -37,7 +37,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
 
 
 
-        mdrawerLayout=(DrawerLayout) findViewById(R.id.dl_drawerLayout);
+        mdrawerLayout= findViewById(R.id.dl_drawerLayout);
         
         mToggle= new ActionBarDrawerToggle(home.this,mdrawerLayout,R.string.open,R.string.close);
 
@@ -45,7 +45,7 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
         mToggle.syncState();
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        NavigationView navigationView= (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView= findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -73,6 +73,8 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                 break;
             case R.id.nav_help:
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HelpFragment()).commit();
+                Intent intent1= new Intent(home.this,Help.class);
+                startActivity(intent1);
                 break;
 
             case R.id.nav_settings:

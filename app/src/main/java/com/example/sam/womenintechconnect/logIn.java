@@ -52,8 +52,29 @@ public class logIn extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         if(user != null){
-            finish();
-            startActivity(new Intent(logIn.this,home.class));
+            FirebaseDatabase.getInstance().getReference().child("users").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                        RegistrationData data=snapshot.getValue(RegistrationData.class);
+                        if (data.getEmail().equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+                          if (data.getRole().equals("Mentor")){
+                              finish();
+                              startActivity(new Intent(logIn.this,Mentor.class));
+                          }else {
+                              finish();
+                              startActivity(new Intent(logIn.this,home.class));
+                          }
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
         }
 
 

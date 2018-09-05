@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Help">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/how_may_we_help_you"
+        android:inputType="text"
+        android:layout_marginTop="30dp"
+
+        />
+    <Button
+        android:id="@+id/helpUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sendHelp"
+        android:layout_marginStart="200dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/helpinfo"
+        android:textSize="20sp"
+        android:padding="15dp"
+        android:layout_marginTop="50dp"/>
+
+
+</LinearLayout>

@@ -139,10 +139,14 @@
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="wit">WIT CONNECT APP</string>
     <string name="connect">TODO</string>
-    <string name="send_message">send message...</string>
+    <string name="send_message">send message</string>
     <string name="select_file">Select file</string>
     <string name="upload">Upload</string>
     <string name="download">Download</string>
     <string name="selected_file">selected file</string>
     <string name="message">message</string>
+    <string name="helpinfo">For more information contact the system administrator via: sashaachi@gmail.com</string>
+    <string name="todo">TODO</string>
+    <string name="how_may_we_help_you">How may we help you?</string>
+    <string name="sendHelp">Send</string>
 </resources>

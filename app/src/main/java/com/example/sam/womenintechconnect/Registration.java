@@ -58,7 +58,7 @@ public class Registration extends AppCompatActivity {
         progressDialog =new ProgressDialog(this);
 
         //create an array adapter for the spinner to be loaded with data
-        ArrayAdapter<String> roleAdapter= new ArrayAdapter<String>(Registration.this,android.R.layout.simple_list_item_1,
+        ArrayAdapter<String> roleAdapter= new ArrayAdapter<>(Registration.this, android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.Role));
         roleAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         RoleSpinner.setAdapter(roleAdapter);
@@ -95,9 +95,10 @@ public class Registration extends AppCompatActivity {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
                            FirebaseAuth.getInstance().signInWithEmailAndPassword(Uname,Uemail).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                               @TargetApi(Build.VERSION_CODES.KITKAT)
                                @Override
                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                   RegistrationData userData= new RegistrationData(FirebaseAuth.getInstance().getCurrentUser().getUid(),Uname,Uemail,Uprofession,selectedItem);
+                                   RegistrationData userData= new RegistrationData(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid(),Uname,Uemail,Uprofession,selectedItem);
                                    FirebaseDatabase.getInstance().getReference().child("users").push().setValue(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
                                        @Override
                                        public void onComplete(@NonNull Task<Void> task) {
