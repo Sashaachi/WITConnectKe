@@ -2,13 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent">
+    android:background="@android:color/white">
 
     <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/download_files"
+        android:text="@string/upload_files"
         android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        />
+    <Button
+        android:id="@+id/btn_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="100dp"
+        android:text="Select file"/>
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="100dp"
+        android:text="Upload"/>
 
 </RelativeLayout>

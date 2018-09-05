@@ -72,11 +72,13 @@ public class home extends AppCompatActivity implements NavigationView.OnNavigati
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
                 break;
             case R.id.nav_help:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HelpFragment()).commit();
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HelpFragment()).commit();
                 break;
 
             case R.id.nav_settings:
                 Toast.makeText(this,"Go to Settings",Toast.LENGTH_SHORT).show();
+                Intent intent= new Intent(home.this,SettingsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_logout:
                logout();

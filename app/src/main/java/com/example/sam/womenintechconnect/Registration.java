@@ -1,6 +1,7 @@
 package com.example.sam.womenintechconnect;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,6 +41,7 @@ public class Registration extends AppCompatActivity {
     FirebaseUser mCurrentUser;
     DatabaseReference myRef;
     FirebaseDatabase myDatabase;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class Registration extends AppCompatActivity {
         Password= findViewById(R.id.et_password);
         confirmPswd=findViewById(R.id.et_password2);
         Button signUp = findViewById(R.id.btn_sign_up);
+        progressDialog =new ProgressDialog(this);
 
         //create an array adapter for the spinner to be loaded with data
         ArrayAdapter<String> roleAdapter= new ArrayAdapter<String>(Registration.this,android.R.layout.simple_list_item_1,
@@ -82,27 +86,48 @@ public class Registration extends AppCompatActivity {
             public void onClick(View v) {
                 //validate user details
                if( validate() ){
-                   String Uemail=Email.getText().toString().trim();
+                   progressDialog.setMessage("please wait");
+                   progressDialog.show();
+                   final String Uemail=Email.getText().toString().trim();
                    String Upassword=Password.getText().toString().trim();
                     //authenticate users
                    firebaseAuth.createUserWithEmailAndPassword(Uemail,Upassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
+                           FirebaseAuth.getInstance().signInWithEmailAndPassword(Uname,Uemail).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                               @Override
+                               public void onComplete(@NonNull Task<AuthResult> task) {
+                                   RegistrationData userData= new RegistrationData(FirebaseAuth.getInstance().getCurrentUser().getUid(),Uname,Uemail,Uprofession,selectedItem);
+                                   FirebaseDatabase.getInstance().getReference().child("users").push().setValue(userData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                       @Override
+                                       public void onComplete(@NonNull Task<Void> task) {
+                                           progressDialog.dismiss();
+                                           Toast.makeText(getApplicationContext(),"registration successful",Toast.LENGTH_SHORT).show();
+                                           finishAffinity();
+                                           FirebaseAuth.getInstance().signOut();
+                                           Intent intent=new Intent(Registration.this,logIn.class);
+                                           startActivity(intent);
+                                       }
+                                   }).addOnFailureListener(new OnFailureListener() {
+                                       @Override
+                                       public void onFailure(@NonNull Exception e) {
 
-                           if (task.isSuccessful()) {
-                               mCurrentUser=firebaseAuth.getCurrentUser();
-                               SendUserData();
-                               Toast.makeText(Registration.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                       }
+                                   });
+                               }
+                           }).addOnFailureListener(new OnFailureListener() {
+                               @Override
+                               public void onFailure(@NonNull Exception e) {
+                               }
+                           });
+                               }
+                           }).addOnFailureListener(new OnFailureListener() {
+                               @Override
+                               public void onFailure(@NonNull Exception e) {
 
+                               }
+                           });
 
-                                    finish();
-                               startActivity(new Intent(Registration.this,logIn.class));
-
-                           } else {
-                               Toast.makeText(Registration.this,"Registration Failed ",Toast.LENGTH_SHORT).show();
-                           }
-                       }
-                   });
                    }
 
             }
@@ -129,20 +154,7 @@ public class Registration extends AppCompatActivity {
         }
         return result;
     }
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    private void SendUserData() {
-        //firebase db instance
-         myDatabase= FirebaseDatabase.getInstance();
-         myDatabase.getReference("UserProfile");
-        //reference to the Firebase database with the users node
-         myRef=myDatabase.getReference("Users");
-       //usersData object
-         RegistrationData userData= new RegistrationData(Uname,Uemail,Uprofession,selectedItem);
-         //push data to users node
-         myRef.child(mCurrentUser.getUid()).setValue(userData);
 
-
-    }
 
 
 }

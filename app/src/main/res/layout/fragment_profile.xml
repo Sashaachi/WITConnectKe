@@ -5,10 +5,11 @@ android:layout_height="match_parent"
 android:background="@android:color/white">
 
 <ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:id="@+id/iv_pic"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
     android:background="@mipmap/ic_launcher_round"
-    android:layout_marginStart="150dp"
+    android:layout_marginStart="110dp"
     android:layout_marginTop="40dp"
     android:contentDescription="@string/user_image" />
     <TextView
@@ -48,7 +49,7 @@ android:background="@android:color/white">
         android:id="@+id/btn_update"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="390dp"
         android:layout_marginStart="120dp"
         android:background="@drawable/button_shape"
         android:text="@string/updatebtn" />
